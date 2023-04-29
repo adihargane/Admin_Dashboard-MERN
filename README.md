@@ -19,7 +19,7 @@ Create .env.local file and add
   REACT_APP_BASE_URL=http://localhost:5001
 ```
 
-To start project
+To start project run command
 ```bash
   npm run start
 ```

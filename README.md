@@ -24,7 +24,7 @@ To start project run command
   npm run start
 ```
 
-Open MongoDB Atlas on web browser. Create database and click connect select drive as Node.js and copy connection string
+Open MongoDB Atlas on web browser. Create database and click connect select driver as Node.js and copy connection string
 
 In other screen in terminal type
 ```bash

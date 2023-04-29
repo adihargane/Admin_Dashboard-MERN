@@ -1,7 +1,6 @@
 import User from "../models/User.js";
-import OverallStat from "../models/OverallStat.js"
-import Transaction from "../models/Transaction.js"
-
+import OverallStat from "../models/OverallStat.js";
+import Transaction from "../models/Transaction.js";
 
 export const getUser = async (req, res) => {
     try {
@@ -9,22 +8,23 @@ export const getUser = async (req, res) => {
         const user = await User.findById(id);
         res.status(200).json(user);
     } catch (error) {
-        res.status(404).json({ message: error.message })
+        res.status(404).json({ message: error.message });
     }
 };
 
 export const getDashboardStats = async (req, res) => {
     try {
-        
-        //hardcoded values
+        // hardcoded values
         const currentMonth = "November";
         const currentYear = 2021;
         const currentDay = "2021-11-15";
 
-        //Recent Transactions
-        const tranasctions = await Transaction.find().limit(50).sort({ createdOn: -1 });
+        /* Recent Transactions */
+        const transactions = await Transaction.find()
+            .limit(50)
+            .sort({ createdOn: -1 });
 
-        //Overall Stats
+        /* Overall Stats */
         const overallStat = await OverallStat.find({ year: currentYear });
 
         const {
@@ -32,8 +32,8 @@ export const getDashboardStats = async (req, res) => {
             yearlyTotalSoldUnits,
             yearlySalesTotal,
             monthlyData,
-            salesByCategory
-        } = overallStat[0]
+            salesByCategory,
+        } = overallStat[0];
 
         const thisMonthStats = overallStat[0].monthlyData.find(({ month }) => {
             return month === currentMonth;
@@ -51,11 +51,9 @@ export const getDashboardStats = async (req, res) => {
             salesByCategory,
             thisMonthStats,
             todayStats,
-            tranasctions,
+            transactions,
         });
-
     } catch (error) {
-        res.status(404).json({ message: error.message })
+        res.status(404).json({ message: error.message });
     }
 };
-

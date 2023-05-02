@@ -28,19 +28,19 @@ Open MongoDB Atlas on web browser. Create database and click connect select driv
 
 In other screen in terminal type
 ```bash
-    cd server
-    npm i
+  cd server
+  npm i
 ```
 
 Create .env file and add
 ```bash
-    MONGO_URL = "you are connection string"
-    PORT = 5001
+  MONGO_URL = "you are connection string"
+  PORT = 5001
 ```
 
 In server folder open index.js file uncomment line no 64 to 69 and run command
 ```bash
-    npm run dev
+  npm run dev
 ```
 
 When it run successfully then comment lines from 64 to 69
